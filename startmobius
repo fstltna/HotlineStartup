@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /home/hotlineuser/mobius/dist/mobius_server_linux_amd64
+./mobius-hotline-server -config /home/hotlineuser/HotlineFiles/ 
+exit 0

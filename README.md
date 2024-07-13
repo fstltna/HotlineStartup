@@ -7,6 +7,7 @@ These start up the Hotline server at boot time with a "screen" process.
 1. Copy **hotline** into **/home/hotlineuser/bin** - make sure it is executable
 2. Copy **starthotline** into **/home/hotlineuser/HotlineFiles** - make sure it is executable
 3. Put **@reboot /home/hotlineuser/bin/hotline start** into your crontab
+4. Copy **startmobius** into **/home/hotlineuser/bin** - make sure it is executable
 
 When you want to view the Hotline console, just enter "**screen -r**" in your shell.
 
