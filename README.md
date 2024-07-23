@@ -1,4 +1,4 @@
-# Hotline Startup Scripts (1.0.1)
+# Hotline Startup Scripts (1.0.2)
 Startup scripts for the Hotline server - uses the "screen" command to manage a session. This also restarts the Hotline process if it crashes.
 
 ---
