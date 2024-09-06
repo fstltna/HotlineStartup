@@ -1,4 +1,4 @@
 #!/bin/bash
 cd /home/hotlineuser/mobius
-./mobius-hotline-server -config /home/hotlineuser/HotlineFiles/ 
+./mobius-hotline-server -config /home/hotlineuser/HotlineFiles/ --log-file=/home/hotlineuser/DownloadFiles.log
 exit 0
