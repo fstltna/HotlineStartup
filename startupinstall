@@ -6,12 +6,12 @@ my $HostFile = "/etc/hostname";
 my $Hostname =  "";
 my $Home =  $ENV{'HOME'};
 my $StartMobiusFile = "startmobius";
-my $PEMFile = "/etc/letsencrypt/live/macosix.retro-os.live/privkey.pem";
 
 open INPUT_FILE, "<$HostFile"  || die "Can't open $HostFile: $!\n";
 $Hostname = <INPUT_FILE>;
 close(INPUT_FILE);
 chop($Hostname);
+my $PEMFile = "/etc/letsencrypt/live/$Hostname/privkey.pem";
 
 my $Script = <<"END_MESSAGE";
 #!/bin/bash
