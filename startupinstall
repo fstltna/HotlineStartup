@@ -12,6 +12,9 @@ $Hostname = <INPUT_FILE>;
 close(INPUT_FILE);
 chop($Hostname);
 my $PEMFile = "/etc/letsencrypt/live/$Hostname/privkey.pem";
+my $ChainPEMFile = "/etc/letsencrypt/live/$Hostname/fullchain.pem";
+my $LivePath = "/etc/letsencrypt/live";
+my $ArchivePath = "/etc/letsencrypt/archive";
 
 my $Script = <<"END_MESSAGE";
 #!/bin/bash
@@ -46,6 +49,9 @@ system("chmod a+rx $Home/HotlineFiles/starthotline");
 
 print "Setting letsencrypt permissions.\n";
 system("sudo chmod a+r $PEMFile");
+system("sudo chmod a+r $ChainPEMFile");
+system("sudo chmod a+xr $LivePath");
+system("sudo chmod a+xr $ArchivePath");
 
 print "All done.\n";
 exit 0;
