@@ -6,6 +6,7 @@ my $HostFile = "/etc/hostname";
 my $Hostname =  "";
 my $Home =  $ENV{'HOME'};
 my $StartMobiusFile = "startmobius";
+my $PEMFile = "/etc/letsencrypt/live/macosix.retro-os.live/privkey.pem";
 
 open INPUT_FILE, "<$HostFile"  || die "Can't open $HostFile: $!\n";
 $Hostname = <INPUT_FILE>;
@@ -42,6 +43,9 @@ system("cp startmobius $Home/bin");
 system("chmod a+rx $Home/bin/startmobius");
 system("cp starthotline $Home/HotlineFiles");
 system("chmod a+rx $Home/HotlineFiles/starthotline");
+
+print "Setting letsencrypt permissions.\n";
+system("sudo chmod a+r $PEMFile");
 
 print "All done.\n";
 exit 0;
