@@ -1,0 +1,47 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+my $HostFile = "/etc/hostname";
+my $Hostname =  "";
+my $Home =  $ENV{'HOME'};
+my $StartMobiusFile = "startmobius";
+
+open INPUT_FILE, "<$HostFile"  || die "Can't open $HostFile: $!\n";
+$Hostname = <INPUT_FILE>;
+close(INPUT_FILE);
+chop($Hostname);
+
+my $Script = <<"END_MESSAGE";
+#!/bin/bash
+cd /home/hotlineuser/mobius
+./mobius-hotline-server -config /home/hotlineuser/HotlineFiles/ --log-file=/home/hotlineuser/DownloadFiles.log -tls-cert /etc/letsencrypt/live/$Hostname/fullchain.pem -tls-key /etc/letsencrypt/live/$Hostname/privkey.pem -tls-port 5600
+
+exit 0
+END_MESSAGE
+
+print "Installing the mobius startup files...\n";
+
+if (! -d "$Home/bin")
+{
+	system("mkdir $Home/bin");
+}
+if (! -d "$Home/HotlineFiles")
+{
+	print "$Home/HotlineFiles does not exist, have you followed the install steps in order?\n";
+	exit 1;
+}
+
+open (my $FH, ">", $StartMobiusFile) or die "Could not create $StartMobiusFile $!";
+print $FH "$Script";
+close($FH);
+
+system("cp hotline $Home/bin");
+system("chmod a+rx $Home/bin/hotline");
+system("cp startmobius $Home/bin");
+system("chmod a+rx $Home/bin/startmobius");
+system("cp starthotline $Home/HotlineFiles");
+system("chmod a+rx $Home/HotlineFiles/starthotline");
+
+print "All done.\n";
+exit 0;

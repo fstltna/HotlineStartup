@@ -1,6 +1,0 @@
-#!/bin/bash
-cd /home/hotlineuser/mobius
-#./mobius-hotline-server -config /home/hotlineuser/HotlineFiles/ --log-file=/home/hotlineuser/DownloadFiles.log
-./mobius-hotline-server -config /home/hotlineuser/HotlineFiles/ --log-file=/home/hotlineuser/DownloadFiles.log -tls-cert /etc/letsencrypt/live/your.domain.com/fullchain.pem -tls-key /etc/letsencrypt/live/your.domain.com/privkey.pem -tls-port 5600
-
-exit 0

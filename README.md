@@ -1,14 +1,12 @@
-# Hotline Startup Scripts (1.0.2)
+# Hotline Startup Scripts (1.1.0)
 Startup scripts for the Hotline server - uses the "screen" command to manage a session. This also restarts the Hotline process if it crashes.
 
 ---
 These start up the Hotline server at boot time with a "screen" process.
 
 1. **mkdir /home/hotlineuser/bin**
-2. Copy **hotline** into **/home/hotlineuser/bin** - make sure it is executable
-3. Copy **starthotline** into **/home/hotlineuser/HotlineFiles** - make sure it is executable
-4. Put **@reboot /home/hotlineuser/bin/hotline start** into your crontab
-5. Copy **startmobius** into **/home/hotlineuser/bin** - make sure it is executable
+2. run: **./startupinstall**
+3. Put **@reboot /home/hotlineuser/bin/hotline start** into your crontab
 
 When you want to view the Hotline console, just enter "**screen -r**" in your shell.
 
