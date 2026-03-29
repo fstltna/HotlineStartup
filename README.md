@@ -7,6 +7,7 @@ These start up the Hotline server at boot time with a "screen" process.
 1. **mkdir /home/hotlineuser/bin**
 2. run: **./startupinstall**
 3. Put **@reboot /home/hotlineuser/bin/hotline start** into your crontab
+4. Be sure and set the /etc/letsencrypt files & folders to allow hotlineuser to access them.
 
 When you want to view the Hotline console, just enter "**screen -r**" in your shell.
 
